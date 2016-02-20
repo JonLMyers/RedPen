@@ -7,7 +7,8 @@ threads = 50
 target = "http://ctf.arch-cloud.com/"
 word_list = "/DirSpy/search.txt"
 resume = None #?
-user_agent = "Chto?"
+user_agent = "Mozilla/5.0 (Windows; U; Windows NT 5.1; it; rv:1.8.1.11)
+ Gecko/20071127 Firefox/2.0.0.11"
 
 
 def build_worldlist(word_list):

@@ -7,7 +7,7 @@ threads = 50
 target = "http://ctf.arch-cloud.com/"
 word_list = "/DirSpy/search.txt"
 resume = None #?
-user_agent = "what the fuck."
+user_agent = "Chto?"
 
 
 def build_worldlist(word_list):
