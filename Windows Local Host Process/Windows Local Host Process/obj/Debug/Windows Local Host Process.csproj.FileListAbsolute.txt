@@ -1,0 +1,6 @@
+c:\users\kierkegaard\documents\visual studio 2015\Projects\Windows Local Host Process\Windows Local Host Process\bin\Debug\Windows Local Host Process.exe.config
+C:\Users\Kierkegaard\documents\visual studio 2015\Projects\Windows Local Host Process\Windows Local Host Process\bin\Debug\Windows Local Host Process.exe
+C:\Users\Kierkegaard\documents\visual studio 2015\Projects\Windows Local Host Process\Windows Local Host Process\bin\Debug\Windows Local Host Process.pdb
+C:\Users\Kierkegaard\documents\visual studio 2015\Projects\Windows Local Host Process\Windows Local Host Process\obj\Debug\Windows Local Host Process.csprojResolveAssemblyReference.cache
+C:\Users\Kierkegaard\documents\visual studio 2015\Projects\Windows Local Host Process\Windows Local Host Process\obj\Debug\Windows Local Host Process.exe
+C:\Users\Kierkegaard\documents\visual studio 2015\Projects\Windows Local Host Process\Windows Local Host Process\obj\Debug\Windows Local Host Process.pdb
