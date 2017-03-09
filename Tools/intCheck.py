@@ -9,6 +9,7 @@ import getopt
 STATUS_UNMODIFIED = 'Unmodified'
 STATUS_MODIFIED = 'WARNING: FILE MODIFIED'
 STATUS_NEW = 'New File'
+FULL_FILES = []
 
 
 def get_hash(fname):
@@ -41,19 +42,23 @@ def main(argv):
         else:
             directory = "C:/"
 
-    for filename in os.listdir(directory):
-        full_file = directory + "/" + filename
-        fhash = get_hash(full_file)
+    for root, dirs, filenames in os.walk(directory):
+        for filename in filenames:
+            #print(os.path.join(root, filename))
+            FULL_FILES.append(os.path.join(root, filename))
+
+    for filename in FULL_FILES:
+        fhash = get_hash(filename)
 
         with con:
             con.row_factory = lite.Row
             cur = con.cursor()
 
             try:
-                cur.execute("SELECT * FROM Files WHERE Filename=?", (full_file,))
+                cur.execute("SELECT * FROM Files WHERE Filename=?", (filename,))
             except lite.Error, e:
                 cur.execute("CREATE TABLE Files(Filename TEXT, Hash TEXT, Status TEXT)")
-                cur.execute("SELECT * FROM Files WHERE Filename=?", (full_file,))
+                cur.execute("SELECT * FROM Files WHERE Filename=?", (filename,))
 
             row = cur.fetchone()
 
@@ -70,10 +75,10 @@ def main(argv):
                                 (fhash, row[1],))
             else:
                 print("File {}: {}").format(filename, STATUS_NEW)
-                cur.execute("INSERT INTO Files(Filename, Hash, Status) VALUES(?, ?, ?)", (full_file, fhash, STATUS_NEW,))
+                cur.execute("INSERT INTO Files(Filename, Hash, Status) VALUES(?, ?, ?)", (filename, fhash, STATUS_NEW,))
 
-        if con:
-            con.close()
+    if con:
+        con.close()
 
 
 if __name__ == "__main__":
